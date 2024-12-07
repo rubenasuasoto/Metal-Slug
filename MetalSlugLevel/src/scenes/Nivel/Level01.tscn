@@ -1,0 +1,420 @@
+[gd_scene load_steps=44 format=3 uid="uid://s51idyfohicd"]
+
+[ext_resource type="PackedScene" uid="uid://b3knjtq6cmvt0" path="res://src/scenes/Nivel/Level.tscn" id="1_4rhec"]
+[ext_resource type="Texture2D" uid="uid://x2t87ul2pjy7" path="res://assets/Map/level1/sky.png" id="2_miapu"]
+[ext_resource type="Texture2D" uid="uid://57kdvukvakam" path="res://assets/Map/level1/waterfall_boat.png" id="3_i4dov"]
+[ext_resource type="Texture2D" uid="uid://x373eyou3c0g" path="res://assets/Map/level1/back_end_river.png" id="4_q316w"]
+[ext_resource type="Texture2D" uid="uid://dcx40ctqoq7ut" path="res://assets/Map/level1/level.png" id="5_wcai6"]
+[ext_resource type="Texture2D" uid="uid://ui1h2yiebksa" path="res://assets/Map/level1/stone1.png" id="6_18g0k"]
+[ext_resource type="Texture2D" uid="uid://cbrd1p6j4gnf1" path="res://assets/Map/level1/waterfall.png" id="7_3mbed"]
+[ext_resource type="Texture2D" uid="uid://bgip3ajx1xh17" path="res://assets/Map/level1/plane_back.png" id="8_emjmh"]
+[ext_resource type="Texture2D" uid="uid://c1vxg7sr4v56q" path="res://assets/Map/level1/river_top_1.png" id="9_e4lj2"]
+[ext_resource type="PackedScene" uid="uid://dg3bot0gwpwg1" path="res://src/scenes/objects/Collectible.tscn" id="10_nex20"]
+[ext_resource type="AudioStream" uid="uid://bqmwrmq6ro4nm" path="res://assets/audio/music/level1.ogg" id="11_xqrre"]
+[ext_resource type="Texture2D" uid="uid://cb45qjd8maoce" path="res://assets/Map/level1/submarine_piece1.png" id="12_gdwf4"]
+[ext_resource type="Texture2D" uid="uid://bmw4d7k5je8oi" path="res://assets/Map/level1/submarine_piece2.png" id="13_5ynme"]
+[ext_resource type="Texture2D" uid="uid://cjvcgmghcg3ns" path="res://assets/Map/level1/plane_front.png" id="14_wtw36"]
+[ext_resource type="Texture2D" uid="uid://blec23v6spryn" path="res://assets/Map/level1/waterfall_bottom.png" id="15_lir3y"]
+[ext_resource type="Texture2D" uid="uid://dssrkdm01csii" path="res://assets/Map/level1/river_bottom_1.png" id="16_y1258"]
+[ext_resource type="Texture2D" uid="uid://in5nhcm0nguc" path="res://assets/Map/level1/river_bottom_end.png" id="17_pt8to"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ta4d2"]
+_data = {
+"idle": SubResource("1")
+}
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(22.1224, 878.212)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(22.1224, 878.212)
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(2378.34, 24.9812)
+
+[sub_resource type="RectangleShape2D" id="5"]
+size = Vector2(10269.9, 42.2542)
+
+[sub_resource type="RectangleShape2D" id="6"]
+size = Vector2(13.2539, 93.531)
+
+[sub_resource type="RectangleShape2D" id="7"]
+size = Vector2(222.378, 21.1846)
+
+[sub_resource type="RectangleShape2D" id="8"]
+size = Vector2(562.27, 20.3506)
+
+[sub_resource type="RectangleShape2D" id="9"]
+size = Vector2(229.212, 19.0208)
+
+[sub_resource type="RectangleShape2D" id="10"]
+size = Vector2(461.832, 20.0596)
+
+[sub_resource type="RectangleShape2D" id="11"]
+size = Vector2(446.398, 52.5526)
+
+[sub_resource type="RectangleShape2D" id="12"]
+size = Vector2(221.098, 25.8404)
+
+[sub_resource type="RectangleShape2D" id="13"]
+size = Vector2(87.4512, 25.1752)
+
+[sub_resource type="Animation" id="14"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ctw44"]
+_data = {
+"idle": SubResource("14")
+}
+
+[sub_resource type="Animation" id="15"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38o4f"]
+_data = {
+"idle": SubResource("15")
+}
+
+[sub_resource type="Animation" id="16"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pflbj"]
+_data = {
+"idle": SubResource("16")
+}
+
+[sub_resource type="Animation" id="17"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ydsm"]
+_data = {
+"idle": SubResource("17")
+}
+
+[sub_resource type="Animation" id="18"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ut48"]
+_data = {
+"idle": SubResource("18")
+}
+
+[sub_resource type="Animation" id="19"]
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2aqx"]
+_data = {
+"idle": SubResource("19")
+}
+
+[node name="Nivel01" instance=ExtResource("1_4rhec")]
+
+[node name="Cielo" type="Sprite2D" parent="." index="0"]
+position = Vector2(7058.7, 201.565)
+scale = Vector2(3536.89, 267.22)
+texture = ExtResource("2_miapu")
+
+[node name="Rect" parent="World" index="0"]
+offset_top = -314.0
+offset_right = 13641.0
+offset_bottom = 720.0
+
+[node name="Bote_cascada" type="Sprite2D" parent="World" index="1"]
+position = Vector2(11512.2, 220.303)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("3_i4dov")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Bote_cascada" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_ta4d2")
+}
+autoplay = "idle"
+
+[node name="rio_final" type="Sprite2D" parent="World" index="2"]
+position = Vector2(9180.11, 33.4707)
+scale = Vector2(5.4, 5.4)
+texture = ExtResource("4_q316w")
+
+[node name="Nivel" type="StaticBody2D" parent="World" index="3"]
+
+[node name="Sprite2D" type="Sprite2D" parent="World/Nivel" index="0"]
+position = Vector2(7058.45, 203.156)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_wcai6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Nivel" index="1"]
+position = Vector2(-11.5142, 106.901)
+shape = SubResource("2")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="World/Nivel" index="2"]
+position = Vector2(13650, -53.6241)
+shape = SubResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Nivel" index="3"]
+position = Vector2(1093.73, 545.109)
+shape = SubResource("4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/Nivel" index="4"]
+position = Vector2(6357.22, 659.727)
+shape = SubResource("5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="World/Nivel" index="5"]
+position = Vector2(2275.62, 601.345)
+shape = SubResource("6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Nivel" index="6"]
+position = Vector2(6116.41, 647.912)
+polygon = PackedVector2Array(7.479, -4.90564, 78.897, -65.6442, 132.961, -87.6703, 194.701, -86.3354, 240.088, -79.6608, 275.797, -78.9933, 273.794, -7.57544, 112.937, -6.24054)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World/Nivel" index="7"]
+position = Vector2(14000, 0)
+polygon = PackedVector2Array(-2621.32, 645.754, -2486.68, 513.996, -2312.6, 500.531, -2259.71, 446.674, -2192.39, 416.86, -2101.02, 405.32, -2017.35, 405.32, -1950.03, 387.047, -1885.59, 364.927, -1826.93, 332.228, -1772.11, 300.49, -1735.08, 262.118, -1672.79, 205.489, -1637.2, 193.355, -1490.77, 191.737, -594.412, 188.501, -316.928, 186.883, -318.244, 330.499)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="World/Nivel" index="8"]
+position = Vector2(3015.03, 523.908)
+shape = SubResource("7")
+one_way_collision = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="World/Nivel" index="9"]
+position = Vector2(3496.55, 390.808)
+shape = SubResource("8")
+one_way_collision = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="World/Nivel" index="10"]
+position = Vector2(3885.21, 522.827)
+shape = SubResource("9")
+one_way_collision = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="World/Nivel" index="11"]
+position = Vector2(4228.8, 387.267)
+shape = SubResource("10")
+one_way_collision = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="World/Nivel" index="12"]
+position = Vector2(4854.46, 404.431)
+shape = SubResource("11")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="World/Nivel" index="13"]
+position = Vector2(5303.33, 527.624)
+shape = SubResource("12")
+one_way_collision = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="World/Nivel" index="14"]
+position = Vector2(5120.61, 390.698)
+shape = SubResource("13")
+one_way_collision = true
+
+[node name="piedra1" type="StaticBody2D" parent="World" index="4"]
+position = Vector2(1922.33, 479.066)
+scale = Vector2(3.4, 3.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="World/piedra1" index="0"]
+texture = ExtResource("6_18g0k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/piedra1" index="1"]
+polygon = PackedVector2Array(-24.2047, 14.7573, -31.0684, -1.9859, -29.4044, -10.3055, -23.0607, -16.3372, -15.9891, -16.6492, -11.7253, -20.601, -1.2218, -20.809, 8.1377, -21.6409, 15.5214, -19.145, 19.2652, -13.8413, 25.8168, -11.2414, 27.2728, 0.82196, 22.0731, 10.1815, 13.8574, 15.2772)
+
+[node name="Cascada" type="Sprite2D" parent="World" index="5"]
+position = Vector2(13268, -98)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("7_3mbed")
+hframes = 8
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Cascada" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_ctw44")
+}
+autoplay = "idle"
+
+[node name="avion" type="Sprite2D" parent="World" index="6"]
+position = Vector2(12080.2, 149.575)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("8_emjmh")
+hframes = 8
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/avion" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_38o4f")
+}
+autoplay = "idle"
+
+[node name="rio_superior" type="Sprite2D" parent="World" index="7"]
+position = Vector2(7856.06, 583.51)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("9_e4lj2")
+hframes = 8
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/rio_superior" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_pflbj")
+}
+autoplay = "idle"
+
+[node name="PlayerStartPosition" parent="." index="2"]
+position = Vector2(215, 459)
+
+[node name="Colleccionable" parent="." index="3" instance=ExtResource("10_nex20")]
+position = Vector2(4421.62, 605.163)
+
+[node name="Player" parent="." index="4"]
+position = Vector2(217, 438)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" index="8"]
+position = Vector2(1344.46, 95.5248)
+stream = ExtResource("11_xqrre")
+volume_db = 15.0
+autoplay = true
+
+[node name="WorldFront" type="Node2D" parent="." index="5"]
+z_index = 100
+
+[node name="submarino parte 1" type="Sprite2D" parent="WorldFront" index="0"]
+position = Vector2(4137.74, 616.694)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("12_gdwf4")
+
+[node name="submarino parte 2" type="Sprite2D" parent="WorldFront" index="1"]
+position = Vector2(4876.32, 526.37)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("13_5ynme")
+
+[node name="avion" type="Sprite2D" parent="WorldFront" index="2"]
+position = Vector2(12702, 203.043)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("14_wtw36")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldFront/avion" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_1ydsm")
+}
+autoplay = "idle"
+
+[node name="background_cascada" type="Sprite2D" parent="WorldFront" index="3"]
+position = Vector2(12928.7, 511.827)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("15_lir3y")
+
+[node name="background_rio" type="Sprite2D" parent="WorldFront" index="4"]
+position = Vector2(7855.73, 665.727)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("16_y1258")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldFront/background_rio" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_0ut48")
+}
+autoplay = "idle"
+
+[node name="background_rio_final" type="Sprite2D" parent="WorldFront" index="5"]
+position = Vector2(10268.9, 665.727)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("17_pt8to")
+hframes = 8
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldFront/background_rio_final" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_c2aqx")
+}
+autoplay = "idle"

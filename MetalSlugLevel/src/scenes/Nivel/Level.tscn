@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3knjtq6cmvt0"]
+
+[ext_resource type="PackedScene" uid="uid://cmy24y35f8waq" path="res://src/scenes/player/Player.tscn" id="1"]
+[ext_resource type="Script" path="res://src/scrips/Levels/Level.gd" id="2"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("2")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Rect" type="ReferenceRect" parent="World"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1")]
