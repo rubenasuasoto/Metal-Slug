@@ -353,7 +353,7 @@ autoplay = "idle"
 position = Vector2(215, 459)
 
 [node name="Colleccionable" parent="." index="3" instance=ExtResource("10_nex20")]
-position = Vector2(4421.62, 605.163)
+position = Vector2(1016, 478)
 
 [node name="Player" parent="." index="4"]
 position = Vector2(217, 438)

@@ -5,7 +5,10 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _on_Collectible_body_entered(body):
+
+
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.gun_type = 2
-		queue_free()
+		print("pase")
+		body.gun_type = 2  # Cambia a la escopeta, 
+		queue_free()  # Elimina el `Collectible` de la escena

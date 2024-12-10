@@ -1,8 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed: Vector2 = Vector2(250.0, 750.0) # Velocidad de movimiento y salto
-@export var local_gravity: float = 800.0
+@export var speed: Vector2 = Vector2(350.0, 750.0) # Velocidad de movimiento y salto
+@export var local_gravity: float = 900.0
 @export var jump_velocity: float = -500.0
 
 const FLOOR_NORMAL: Vector2 = Vector2.UP
@@ -21,7 +21,7 @@ var pushed: bool = false
 @onready var pistola: Node2D = sprite.get_node("pistola") as Node2D
 @onready var escopeta: Node2D = sprite.get_node("escopeta") as Node2D
 
-var gun_type: int = 1
+var gun_type: int = 2
 
 func start(pos: Vector2) -> void:
 	position = pos
@@ -42,6 +42,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * speed.x
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, speed.x * delta)  
+	
+	if Input.is_action_just_pressed("ESC"):
+		get_tree().change_scene_to_file("res://src/scenes/UI/menu.tscn")
 	
 	# Control de salto
 	if Input.is_action_just_pressed("jump") and is_on_floor():
