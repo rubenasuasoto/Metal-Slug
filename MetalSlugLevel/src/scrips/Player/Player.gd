@@ -21,7 +21,7 @@ var pushed: bool = false
 @onready var pistola: Node2D = sprite.get_node("pistola") as Node2D
 @onready var escopeta: Node2D = sprite.get_node("escopeta") as Node2D
 
-var gun_type: int = 2
+var gun_type: int = 1
 
 func start(pos: Vector2) -> void:
 	position = pos
