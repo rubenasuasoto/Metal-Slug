@@ -1,9 +1,2 @@
-res://src/scrips/Objects/Collectible.gd
 res://default_env.tres
-res://src/scenes/objects/Collectible.tscn
-res://src/scenes/Nivel/Level01.tscn
-res://src/scenes/player/Player.tscn
-res://src/scenes/objects/Explosion.tscn
-res://src/scenes/Nivel/Level.tscn
-res://src/scenes/UI/menu.tscn
-res://src/scrips/Player/Player.gd
+res://game_over.tscn

@@ -5,7 +5,6 @@ extends Area2D
 @export var damage: int
 
 @onready var animation_player = $AnimationPlayer
-
 var player_is_owner: bool = true
 var offset_y: float = 0
 var disable: bool = false

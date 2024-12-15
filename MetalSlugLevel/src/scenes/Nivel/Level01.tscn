@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://s51idyfohicd"]
+[gd_scene load_steps=45 format=3 uid="uid://s51idyfohicd"]
 
 [ext_resource type="PackedScene" uid="uid://b3knjtq6cmvt0" path="res://src/scenes/Nivel/Level.tscn" id="1_4rhec"]
 [ext_resource type="Texture2D" uid="uid://x2t87ul2pjy7" path="res://assets/Map/level1/sky.png" id="2_miapu"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://blec23v6spryn" path="res://assets/Map/level1/waterfall_bottom.png" id="15_lir3y"]
 [ext_resource type="Texture2D" uid="uid://dssrkdm01csii" path="res://assets/Map/level1/river_bottom_1.png" id="16_y1258"]
 [ext_resource type="Texture2D" uid="uid://in5nhcm0nguc" path="res://assets/Map/level1/river_bottom_end.png" id="17_pt8to"]
+[ext_resource type="PackedScene" uid="uid://chxk14kf2qvn3" path="res://src/scenes/UI/health_bar.tscn" id="18_2rjo6"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "idle"
@@ -418,3 +419,8 @@ libraries = {
 "": SubResource("AnimationLibrary_c2aqx")
 }
 autoplay = "idle"
+
+[node name="CanvasLayer" parent="." index="6" instance=ExtResource("18_2rjo6")]
+
+[node name="Collectible" parent="." index="7" instance=ExtResource("10_nex20")]
+position = Vector2(4390, 570)

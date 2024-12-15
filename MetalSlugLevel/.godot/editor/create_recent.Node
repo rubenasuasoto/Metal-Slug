@@ -1,6 +1,11 @@
 TextureRect
+ColorRect
+ProgressBar
+CanvasLayer
+AnimatedSprite2D
+Node2D
+AnimationPlayer
 Button
 VBoxContainer
-ColorRect
 Label
 ScrollContainer

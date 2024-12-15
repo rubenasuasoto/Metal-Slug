@@ -10,6 +10,7 @@ const FLOOR_DETECT_DISTANCE: float = 20.0
 
 var _velocity: Vector2 = Vector2.ZERO
 var pushed: bool = false  
+var health = 100
 
 @onready var platform_detector: RayCast2D = $PlatformDetector
 @onready var animation_player_legs: AnimationPlayer = $AnimationPlayerlegs
