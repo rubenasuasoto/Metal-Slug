@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://s51idyfohicd"]
+[gd_scene load_steps=48 format=3 uid="uid://s51idyfohicd"]
 
 [ext_resource type="PackedScene" uid="uid://b3knjtq6cmvt0" path="res://src/scenes/Nivel/Level.tscn" id="1_4rhec"]
 [ext_resource type="Texture2D" uid="uid://x2t87ul2pjy7" path="res://assets/Map/level1/sky.png" id="2_miapu"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dssrkdm01csii" path="res://assets/Map/level1/river_bottom_1.png" id="16_y1258"]
 [ext_resource type="Texture2D" uid="uid://in5nhcm0nguc" path="res://assets/Map/level1/river_bottom_end.png" id="17_pt8to"]
 [ext_resource type="PackedScene" uid="uid://chxk14kf2qvn3" path="res://src/scenes/UI/health_bar.tscn" id="18_2rjo6"]
+[ext_resource type="PackedScene" uid="uid://bo4qtlpnbs2wm" path="res://src/scenes/UI/pausa.tscn" id="19_1e13w"]
+[ext_resource type="PackedScene" uid="uid://285xsakm2cfo" path="res://src/scenes/enemy/follow_enemy.tscn" id="20_l154u"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "idle"
@@ -42,9 +44,6 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="2"]
-size = Vector2(22.1224, 878.212)
-
-[sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(22.1224, 878.212)
 
 [sub_resource type="RectangleShape2D" id="4"]
@@ -76,6 +75,9 @@ size = Vector2(221.098, 25.8404)
 
 [sub_resource type="RectangleShape2D" id="13"]
 size = Vector2(87.4512, 25.1752)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_do3ol"]
+size = Vector2(160.75, 1076.5)
 
 [sub_resource type="Animation" id="14"]
 length = 0.8
@@ -203,6 +205,9 @@ _data = {
 "idle": SubResource("19")
 }
 
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(43.9694, 878.212)
+
 [node name="Nivel01" instance=ExtResource("1_4rhec")]
 
 [node name="Cielo" type="Sprite2D" parent="." index="0"]
@@ -239,67 +244,73 @@ position = Vector2(7058.45, 203.156)
 scale = Vector2(3.4, 3.4)
 texture = ExtResource("5_wcai6")
 
+[node name="Collectible" parent="World/Nivel/Sprite2D" index="0" instance=ExtResource("10_nex20")]
+position = Vector2(4390, 570)
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Nivel" index="1"]
 position = Vector2(-11.5142, 106.901)
 shape = SubResource("2")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="World/Nivel" index="2"]
-position = Vector2(13650, -53.6241)
-shape = SubResource("3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Nivel" index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Nivel" index="2"]
 position = Vector2(1093.73, 545.109)
 shape = SubResource("4")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/Nivel" index="4"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World/Nivel" index="3"]
 position = Vector2(6357.22, 659.727)
 shape = SubResource("5")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="World/Nivel" index="5"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="World/Nivel" index="4"]
 position = Vector2(2275.62, 601.345)
 shape = SubResource("6")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Nivel" index="6"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/Nivel" index="5"]
 position = Vector2(6116.41, 647.912)
 polygon = PackedVector2Array(7.479, -4.90564, 78.897, -65.6442, 132.961, -87.6703, 194.701, -86.3354, 240.088, -79.6608, 275.797, -78.9933, 273.794, -7.57544, 112.937, -6.24054)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World/Nivel" index="7"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="World/Nivel" index="6"]
 position = Vector2(14000, 0)
 polygon = PackedVector2Array(-2621.32, 645.754, -2486.68, 513.996, -2312.6, 500.531, -2259.71, 446.674, -2192.39, 416.86, -2101.02, 405.32, -2017.35, 405.32, -1950.03, 387.047, -1885.59, 364.927, -1826.93, 332.228, -1772.11, 300.49, -1735.08, 262.118, -1672.79, 205.489, -1637.2, 193.355, -1490.77, 191.737, -594.412, 188.501, -316.928, 186.883, -318.244, 330.499)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="World/Nivel" index="8"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="World/Nivel" index="7"]
 position = Vector2(3015.03, 523.908)
 shape = SubResource("7")
 one_way_collision = true
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="World/Nivel" index="9"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="World/Nivel" index="8"]
 position = Vector2(3496.55, 390.808)
 shape = SubResource("8")
 one_way_collision = true
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="World/Nivel" index="10"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="World/Nivel" index="9"]
 position = Vector2(3885.21, 522.827)
 shape = SubResource("9")
 one_way_collision = true
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="World/Nivel" index="11"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="World/Nivel" index="10"]
 position = Vector2(4228.8, 387.267)
 shape = SubResource("10")
 one_way_collision = true
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="World/Nivel" index="12"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="World/Nivel" index="11"]
 position = Vector2(4854.46, 404.431)
 shape = SubResource("11")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="World/Nivel" index="13"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="World/Nivel" index="12"]
 position = Vector2(5303.33, 527.624)
 shape = SubResource("12")
 one_way_collision = true
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="World/Nivel" index="14"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="World/Nivel" index="13"]
 position = Vector2(5120.61, 390.698)
 shape = SubResource("13")
 one_way_collision = true
+
+[node name="Collectible" parent="World/Nivel" index="14" instance=ExtResource("10_nex20")]
+position = Vector2(5997, 583)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="World/Nivel" index="15"]
+position = Vector2(13678, 5)
+shape = SubResource("RectangleShape2D_do3ol")
 
 [node name="piedra1" type="StaticBody2D" parent="World" index="4"]
 position = Vector2(1922.33, 479.066)
@@ -354,7 +365,7 @@ autoplay = "idle"
 position = Vector2(215, 459)
 
 [node name="Colleccionable" parent="." index="3" instance=ExtResource("10_nex20")]
-position = Vector2(1016, 478)
+position = Vector2(1048, 452)
 
 [node name="Player" parent="." index="4"]
 position = Vector2(217, 438)
@@ -367,6 +378,7 @@ autoplay = true
 
 [node name="WorldFront" type="Node2D" parent="." index="5"]
 z_index = 100
+position = Vector2(-3, 0)
 
 [node name="submarino parte 1" type="Sprite2D" parent="WorldFront" index="0"]
 position = Vector2(4137.74, 616.694)
@@ -424,3 +436,33 @@ autoplay = "idle"
 
 [node name="Collectible" parent="." index="7" instance=ExtResource("10_nex20")]
 position = Vector2(4390, 570)
+
+[node name="Pausa" parent="." index="8" instance=ExtResource("19_1e13w")]
+
+[node name="FollowEnemy" parent="." index="9" instance=ExtResource("20_l154u")]
+position = Vector2(1560, 437)
+scale = Vector2(1.8, 1.8)
+
+[node name="Final2" type="Area2D" parent="." index="10"]
+position = Vector2(13475, 90)
+collision_mask = 13
+priority = 1
+
+[node name="final_Juego" type="CollisionShape2D" parent="Final2" index="0"]
+position = Vector2(3, 1)
+shape = SubResource("3")
+
+[node name="FollowEnemy2" parent="." index="11" instance=ExtResource("20_l154u")]
+position = Vector2(3346, 527)
+scale = Vector2(1.8, 1.8)
+
+[node name="FollowEnemy3" parent="." index="12" instance=ExtResource("20_l154u")]
+position = Vector2(7384, 530)
+scale = Vector2(1.8, 1.8)
+
+[node name="FollowEnemy4" parent="." index="13" instance=ExtResource("20_l154u")]
+position = Vector2(7656, 527)
+scale = Vector2(1.8, 1.8)
+
+[connection signal="body_entered" from="Final2" to="." method="_on_final_2_body_entered"]
+[connection signal="body_shape_entered" from="Final2" to="." method="_on_final_2_body_shape_entered"]

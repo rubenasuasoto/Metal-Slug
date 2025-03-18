@@ -1,2 +1,10 @@
 res://default_env.tres
-res://game_over.tscn
+res://src/scenes/Nivel/Level01.tscn
+res://src/scenes/player/Player.tscn
+res://src/scenes/enemy/follow_enemy.tscn
+res://src/scenes/objects/Bullet1.tscn
+res://src/scenes/UI/pausa.tscn
+res://src/scenes/UI/menu.tscn
+res://src/scenes/UI/final.tscn
+res://src/scenes/UI/game_over.tscn
+res://src/scenes/Nivel/Level.tscn

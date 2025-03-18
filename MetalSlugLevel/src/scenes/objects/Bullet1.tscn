@@ -158,9 +158,9 @@ _data = {
 }
 
 [node name="Bullet1" type="Area2D"]
+collision_mask = 13
 script = ExtResource("1")
 speed = 1530
-damage = 25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.582749, -16.0424)

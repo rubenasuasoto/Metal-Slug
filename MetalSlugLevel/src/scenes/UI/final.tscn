@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxlfy788ah42o"]
+
+[ext_resource type="Script" path="res://src/scrips/UI/final.gd" id="1_qsu33"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23erc"]
+load_path = "res://.godot/imported/fondo metal slug.jpg-c2428487a480b56cbe71d5a8b3d51bad.ctex"
+
+[node name="Final" type="CanvasLayer"]
+script = ExtResource("1_qsu33")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.164706)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_23erc")
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 455.0
+offset_top = 56.0
+offset_right = 823.0
+offset_bottom = 234.0
+theme_override_font_sizes/font_size = 55
+text = "MISION 
+COMPLETADA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit" type="Button" parent="."]
+offset_left = 543.0
+offset_top = 354.0
+offset_right = 767.0
+offset_bottom = 468.0
+theme_override_font_sizes/font_size = 50
+text = "Salir
+"
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

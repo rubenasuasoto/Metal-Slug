@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed: Vector2 = Vector2(350.0, 750.0) # Velocidad de movimiento y salto
+@export var speed: Vector2 = Vector2(550.0, 750.0) # Velocidad de movimiento y salto
 @export var local_gravity: float = 900.0
 @export var jump_velocity: float = -500.0
 
@@ -11,6 +11,10 @@ const FLOOR_DETECT_DISTANCE: float = 20.0
 var _velocity: Vector2 = Vector2.ZERO
 var pushed: bool = false  
 var health = 100
+var municion_pistola = 15  
+var municion_escopeta: int = 10
+var municion_granadas: int = 4
+
 
 @onready var platform_detector: RayCast2D = $PlatformDetector
 @onready var animation_player_legs: AnimationPlayer = $AnimationPlayerlegs
@@ -29,7 +33,7 @@ func start(pos: Vector2) -> void:
 	show()
 
 func _ready() -> void:
-	pass
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	# Aplicar gravedad si no está en el suelo
@@ -44,8 +48,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, speed.x * delta)  
 	
-	if Input.is_action_just_pressed("ESC"):
-		get_tree().change_scene_to_file("res://src/scenes/UI/menu.tscn")
+	
 	
 	# Control de salto
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -70,22 +73,41 @@ func jump() -> void:
 	await get_tree().create_timer(0.6).timeout
 	if is_on_floor():
 		animation_player_legs.play("idle")
+		
+
 
 func handle_shooting() -> void:
 	# Disparo de bombas
 	var is_shooting_bomb: bool = false
 	if Input.is_action_just_pressed("shoot_bomb") and shoot_bomb_timer.time_left <= 0.0:
-		is_shooting_bomb = granada.call("shoot", true)
+		if municion_granadas > 0:  # Verificar si hay granadas disponibles
+			is_shooting_bomb = granada.call("shoot", true)
+			municion_granadas -= 1
+			print("Granadas restantes: ", municion_granadas)
+		else:
+			print("Sin granadas!")
 
 	# Disparo normal
 	var is_shooting: bool = false
+	
 	if gun_type == 1:  # Pistola
 		if Input.is_action_just_pressed("shoot") and shoot_timer.time_left <= 0.0:
-			is_shooting = pistola.call("shoot", true)
+			if municion_pistola > 0:  # Verificar si hay balas
+				is_shooting = pistola.call("shoot", true)
+				municion_pistola -= 1
+				print("Balas de pistola restantes: ", municion_pistola)
+			else:
+				print("Sin balas en la pistola!")
+
 	elif gun_type == 2:  # Escopeta
 		if Input.is_action_pressed("shoot") and shoot_timer.time_left <= 0.0:
-			is_shooting = true
-			escopeta.call("shoot", true)
+			if municion_escopeta > 0:  # Verificar si hay cartuchos
+				is_shooting = true
+				escopeta.call("shoot", true)
+				municion_escopeta -= 1
+				print("Balas de escopeta restantes: ", municion_escopeta)
+			else:
+				print("Sin balas en la escopeta!")
 
 	# Manejo de temporizadores
 	if is_shooting:
@@ -115,6 +137,14 @@ func update_animations(direction: float) -> void:
 	else:
 		animation_player.play("idle_weapon_" + str(gun_type))
 
-
 func take_damage(damage: int) -> void:
-	print("Player damage:", damage)
+	health -= damage
+	print("Player health:", health)
+	
+	if health <= 0:
+		die()
+
+func die() -> void:
+		print("¡Has muerto! Game Over")
+		queue_free()  # Elimina al jugador
+		get_tree().change_scene_to_file("res://src/scenes/UI/game_over.tscn")

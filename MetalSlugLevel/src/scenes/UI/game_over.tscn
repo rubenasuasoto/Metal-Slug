@@ -1,17 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckj5b1sqq0v1e"]
+[gd_scene load_steps=3 format=3 uid="uid://ckj5b1sqq0v1e"]
 
+[ext_resource type="Script" path="res://src/scrips/UI/game_over.gd" id="1_bcd5y"]
 [ext_resource type="Texture2D" uid="uid://dpo8v73ndn7wn" path="res://assets/Menu/game_over.jpg" id="1_hvjgy"]
 
-[node name="Game_Over" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Game_Over" type="CanvasLayer"]
+script = ExtResource("1_bcd5y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,10 +14,25 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_hvjgy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.095
+one_shot = true
+
+[node name="quit" type="Button" parent="Timer"]
+offset_left = 521.0
+offset_top = 64.0
+offset_right = 795.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 50
+text = "Salir
+"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Timer/quit" to="." method="_on_quit_pressed"]

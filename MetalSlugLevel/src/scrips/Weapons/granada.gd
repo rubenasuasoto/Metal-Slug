@@ -1,6 +1,6 @@
 extends Marker2D
 
-const BOMB_VELOCITY = 500
+const BOMB_VELOCITY = 550
 const Bomb = preload("res://src/scenes/objects/Bomb1.tscn")
 
 @onready var timer: Timer = $Cooldown

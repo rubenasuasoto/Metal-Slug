@@ -1,0 +1,178 @@
+[gd_scene load_steps=24 format=3 uid="uid://285xsakm2cfo"]
+
+[ext_resource type="Script" path="res://src/scrips/Player/follow_enemy.gd" id="1_u8llf"]
+[ext_resource type="Texture2D" uid="uid://bvtsuune7qosl" path="res://assets/enemigo/idle.png" id="2_2yese"]
+[ext_resource type="Texture2D" uid="uid://beu1aby25yctf" path="res://assets/enemigo/run.png" id="3_r4seg"]
+[ext_resource type="Texture2D" uid="uid://kbfdveogxh7l" path="res://assets/enemigo/shoot.png" id="4_0ilra"]
+[ext_resource type="Script" path="res://src/scrips/Weapons/pistola.gd" id="5_arnew"]
+[ext_resource type="AudioStream" uid="uid://cagch6mn8cmvs" path="res://assets/audio/efectos/shoot_1.wav" id="6_6ix18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs8l0"]
+size = Vector2(44, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgmac"]
+atlas = ExtResource("2_2yese")
+region = Rect2(0, 0, 45, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1schq"]
+atlas = ExtResource("2_2yese")
+region = Rect2(45, 0, 45, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkmas"]
+atlas = ExtResource("2_2yese")
+region = Rect2(90, 0, 45, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnqjf"]
+atlas = ExtResource("3_r4seg")
+region = Rect2(0, 0, 42, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flp3d"]
+atlas = ExtResource("3_r4seg")
+region = Rect2(42, 0, 42, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uimug"]
+atlas = ExtResource("3_r4seg")
+region = Rect2(84, 0, 42, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tnpq"]
+atlas = ExtResource("3_r4seg")
+region = Rect2(126, 0, 42, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aytg"]
+atlas = ExtResource("3_r4seg")
+region = Rect2(252, 0, 42, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lb4a"]
+atlas = ExtResource("3_r4seg")
+region = Rect2(294, 0, 42, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux1v1"]
+atlas = ExtResource("4_0ilra")
+region = Rect2(0, 0, 49, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkguu"]
+atlas = ExtResource("4_0ilra")
+region = Rect2(98, 0, 49, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5pb3"]
+atlas = ExtResource("4_0ilra")
+region = Rect2(147, 0, 49, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nidqn"]
+atlas = ExtResource("4_0ilra")
+region = Rect2(245, 0, 49, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_203wy"]
+atlas = ExtResource("4_0ilra")
+region = Rect2(294, 0, 49, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxld8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgmac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1schq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkmas")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnqjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flp3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uimug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tnpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aytg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lb4a")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux1v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkguu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5pb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nidqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_203wy")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_781pk"]
+size = Vector2(47, 82)
+
+[node name="FollowEnemy" type="CharacterBody2D"]
+collision_mask = 13
+script = ExtResource("1_u8llf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 12.5)
+shape = SubResource("RectangleShape2D_bs8l0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 2)
+scale = Vector2(2, 2.281)
+sprite_frames = SubResource("SpriteFrames_sxld8")
+animation = &"shooting"
+flip_h = true
+
+[node name="pistola" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(22, -8.32968)
+scale = Vector2(0.5, 0.438404)
+script = ExtResource("5_arnew")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="AnimatedSprite2D/pistola"]
+position = Vector2(-1, -1.90735e-06)
+stream = ExtResource("6_6ix18")
+area_mask = 2
+
+[node name="Cooldown" type="Timer" parent="AnimatedSprite2D/pistola"]
+wait_time = 0.062
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(16, 0)
+target_position = Vector2(718, 0)
+collision_mask = 15
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(16, 1)
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_781pk")
+
+[node name="shootTimer" type="Timer" parent="."]
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="shootTimer" to="." method="_on_shoot_timer_timeout"]

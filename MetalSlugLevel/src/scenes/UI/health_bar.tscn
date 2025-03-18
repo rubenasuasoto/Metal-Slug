@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chxk14kf2qvn3"]
+[gd_scene load_steps=5 format=3 uid="uid://chxk14kf2qvn3"]
 
 [ext_resource type="Script" path="res://src/scrips/UI/health_bar.gd" id="1_chqao"]
 [ext_resource type="Texture2D" uid="uid://rw0rjbqlh8f0" path="res://assets/objects/health bar.png" id="1_nn4ul"]
+[ext_resource type="Texture2D" uid="uid://dsxn8y04bfvtg" path="res://assets/objects/bomb_1.png" id="3_qja1h"]
+[ext_resource type="Texture2D" uid="uid://b1q2qhnv3anlg" path="res://assets/objects/bullet_1.png" id="4_jj1p8"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_chqao")
@@ -22,3 +24,35 @@ offset_top = 14.0
 offset_right = 209.0
 offset_bottom = 54.0
 texture = ExtResource("1_nn4ul")
+
+[node name="Bomb1" type="Sprite2D" parent="."]
+position = Vector2(408, 36)
+scale = Vector2(2.75, 1.94444)
+texture = ExtResource("3_qja1h")
+
+[node name="Bullet1" type="Sprite2D" parent="."]
+position = Vector2(299, 34.25)
+scale = Vector2(5.66667, 5.58333)
+texture = ExtResource("4_jj1p8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 225.0
+offset_top = 14.0
+offset_right = 272.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 31
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 340.0
+offset_top = 13.0
+offset_right = 392.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 31
+text = "0
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
