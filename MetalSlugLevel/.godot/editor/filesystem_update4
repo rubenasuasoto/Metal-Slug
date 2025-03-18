@@ -8,3 +8,9 @@ res://src/scenes/UI/menu.tscn
 res://src/scenes/UI/final.tscn
 res://src/scenes/UI/game_over.tscn
 res://src/scenes/Nivel/Level.tscn
+res://playerApi.gd
+res://Api.tscn
+res://src/scrips/Player/follow_enemy.gd
+res://src/scrips/Levels/Level.gd
+res://score_manager.gd
+res://score_Manager.tscn

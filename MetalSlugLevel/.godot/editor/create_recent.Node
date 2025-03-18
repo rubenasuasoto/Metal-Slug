@@ -1,3 +1,6 @@
+HTTPRequest
+Node
+Node2D
 TextureRect
 Timer
 CollisionShape2D
@@ -9,7 +12,3 @@ RayCast2D
 AnimatedSprite2D
 AnimationTree
 Sprite2D
-AnimationPlayer
-CharacterBody2D
-StaticBody2D
-Button

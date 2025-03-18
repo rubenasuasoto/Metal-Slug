@@ -1,19 +1,21 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0  # Velocidad de movimiento
+@export var speed: float = 100.0  
 @export var local_gravity: float = 900.0
-@export var detection_range: float = 800.0  # Distancia máxima para seguir al jugador
-@export var shooting_range: float = 600.0  # Distancia máxima para disparar
+@export var detection_range: float = 800.0  
+@export var shooting_range: float = 600.0  
 
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var pistola: Node2D = animation_sprite.get_node("pistola") as Node2D
-
+@onready var score_manager: Node = null
 var health: int = 20 
 var target: Node2D = null
 var shooting: bool = false
 
+
 func _ready() -> void:
 	add_to_group("enemies")
+	score_manager = get_tree().get_first_node_in_group("score_manager")  # Buscar el manejador de puntuación
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -92,6 +94,9 @@ func take_damage(damage: int) -> void:
 func died() -> void:
 	print("Enemigo eliminado")
 	queue_free()
+	
+	score_manager.add_score(100)
+	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"): 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://pc4jfaqyatuw"]
+
+[ext_resource type="Script" path="res://playerApi.gd" id="1_l6gjb"]
+
+[node name="Api" type="Node2D"]
+script = ExtResource("1_l6gjb")
+
+[node name="HTTPRequestPost" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequestGet" type="HTTPRequest" parent="."]

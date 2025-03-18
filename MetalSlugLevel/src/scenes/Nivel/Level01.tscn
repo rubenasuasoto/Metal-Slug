@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://s51idyfohicd"]
+[gd_scene load_steps=50 format=3 uid="uid://s51idyfohicd"]
 
 [ext_resource type="PackedScene" uid="uid://b3knjtq6cmvt0" path="res://src/scenes/Nivel/Level.tscn" id="1_4rhec"]
 [ext_resource type="Texture2D" uid="uid://x2t87ul2pjy7" path="res://assets/Map/level1/sky.png" id="2_miapu"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://chxk14kf2qvn3" path="res://src/scenes/UI/health_bar.tscn" id="18_2rjo6"]
 [ext_resource type="PackedScene" uid="uid://bo4qtlpnbs2wm" path="res://src/scenes/UI/pausa.tscn" id="19_1e13w"]
 [ext_resource type="PackedScene" uid="uid://285xsakm2cfo" path="res://src/scenes/enemy/follow_enemy.tscn" id="20_l154u"]
+[ext_resource type="PackedScene" uid="uid://pc4jfaqyatuw" path="res://Api.tscn" id="21_wcjhm"]
+[ext_resource type="PackedScene" uid="uid://bctklumugrjp" path="res://score_Manager.tscn" id="22_x26i8"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "idle"
@@ -463,6 +465,10 @@ scale = Vector2(1.8, 1.8)
 [node name="FollowEnemy4" parent="." index="13" instance=ExtResource("20_l154u")]
 position = Vector2(7656, 527)
 scale = Vector2(1.8, 1.8)
+
+[node name="Api" parent="." index="14" instance=ExtResource("21_wcjhm")]
+
+[node name="Node" parent="." index="15" instance=ExtResource("22_x26i8")]
 
 [connection signal="body_entered" from="Final2" to="." method="_on_final_2_body_entered"]
 [connection signal="body_shape_entered" from="Final2" to="." method="_on_final_2_body_shape_entered"]
