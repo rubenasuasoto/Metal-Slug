@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 @onready var animation_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var pistola: Node2D = animation_sprite.get_node("pistola") as Node2D
-@onready var score_manager: Node = null
+@onready var score_manager: Node2D = null
 var health: int = 20 
 var target: Node2D = null
 var shooting: bool = false
@@ -15,7 +15,7 @@ var shooting: bool = false
 
 func _ready() -> void:
 	add_to_group("enemies")
-	score_manager = get_tree().get_first_node_in_group("score_manager")  # Buscar el manejador de puntuación
+	score_manager = get_tree().get_first_node_in_group("Api")  # Buscar el manejador de puntuación
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)

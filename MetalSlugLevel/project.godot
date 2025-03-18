@@ -43,6 +43,7 @@ project/assembly_name="Metal Slug"
 [global_group]
 
 score_manager=""
+Api=""
 
 [importer_defaults]
 

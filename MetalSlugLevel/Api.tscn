@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" path="res://playerApi.gd" id="1_l6gjb"]
 
-[node name="Api" type="Node2D"]
+[node name="Api" type="Node2D" groups=["Api"]]
 script = ExtResource("1_l6gjb")
 
 [node name="HTTPRequestPost" type="HTTPRequest" parent="."]
 
 [node name="HTTPRequestGet" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequestPost" to="." method="_on_http_request_post_request_completed"]
+[connection signal="request_completed" from="HTTPRequestGet" to="." method="_on_http_request_get_request_completed"]
